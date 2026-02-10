@@ -20,7 +20,7 @@ O projeto segue uma arquitetura em camadas:
 - simplificar operações CRUD e manter baixo acoplamento com a camada de persistência. (SolicitacaoRepository)
 
 - Os estados da solicitação são modelados através de uma enumeração de domínio, garantindo tipagem forte,
-- clareza semântica e integridade das regras de negócio. (StatusSolciitacaoEntity)
+- clareza semântica e integridade das regras de negócio. (StatusSolicitacaoEntity)
 
 - A conversão entre o modelo SOAP e o modelo de domínio é realizada por mappers dedicados,
 - garantindo isolamento entre camadas, preservação dos relacionamentos e facilidade de manutenção. (SolicitacaoEntityMapper)
