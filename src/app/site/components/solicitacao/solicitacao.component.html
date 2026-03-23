@@ -1,0 +1,56 @@
+<p>
+  solicitacao works!
+</p>
+
+<div>
+ <button (click)="buscarSolicitacoes()">
+    Buscar
+  </button>
+
+ <table *ngIf="solicitacoes.length > 0" class="tabela">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let s of solicitacoes">
+      <td>{{ s.idSolicitacao}}</td>
+      <td>{{ s.solicitante}}</td>
+    </tr>
+  </tbody>
+
+ </table>
+</div>
+
+<!-- <div>
+  <button (click)="buscarSolicitacoes()">
+    Buscar Solicitações
+  </button>
+  <pre>{{ solicitacoes | json}}</pre>
+  <ul>
+    <li *ngFor="let s of solicitacoes">
+      {{ s.solicitante }}
+    </li>
+  </ul>
+</div>
+<div>
+  <table class="tabela">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let s of solicitacoes">
+        <td>{{ s.idSolicitacao }}</td>
+        <td>{{ s.solicitante }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
