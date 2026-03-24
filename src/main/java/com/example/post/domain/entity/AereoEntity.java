@@ -1,6 +1,5 @@
 package com.example.post.domain.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.ArrayList;
@@ -46,7 +45,7 @@ public class AereoEntity {
      * Segmentos de voo associados ao registro aéreo.
      */
     @OneToMany(mappedBy = "aereo", cascade = CascadeType.ALL)
-    private List<AereoSeguimentoEntity> seguimentos = new ArrayList<>();
+    private List<AereoSegmentoEntity> segmentos = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -80,11 +79,11 @@ public class AereoEntity {
         this.solicitacao = solicitacao;
     }
 
-    public List<AereoSeguimentoEntity> getSeguimentos() {
-        return seguimentos;
+    public List<AereoSegmentoEntity> getSegmentos() {
+        return segmentos;
     }
 
-    public void setSeguimentos(List<AereoSeguimentoEntity> seguimentos) {
-        this.seguimentos = seguimentos;
+    public void setSegmentos(List<AereoSegmentoEntity> segmentos) {
+        this.segmentos = segmentos;
     }
 }

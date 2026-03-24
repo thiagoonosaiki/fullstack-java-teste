@@ -46,7 +46,7 @@ public class SolicitacaoEntity {
     private List<PassageiroEntity> passageiros = new ArrayList<>();
 
     /**
-     * Lista de informações aéreas associadas á solciitação.
+     * Lista de informações aéreas associadas á solicitação.
      */
     @OneToMany(mappedBy = "solicitacao", cascade = CascadeType.ALL)
     private List<AereoEntity> aereos = new ArrayList<>();
@@ -90,4 +90,5 @@ public class SolicitacaoEntity {
     public void setAereos(List<AereoEntity> aereos) {
         this.aereos = aereos;
     }
+
 }

@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
  */
 @Entity
 @Table(name = "aereo_seguimento")
-public class AereoSeguimentoEntity {
+public class AereoSegmentoEntity {
 
     /**
      * Identificador único do segmento aéreo.
@@ -52,7 +52,6 @@ public class AereoSeguimentoEntity {
     @JoinColumn(name = "aereo_id")
     @JsonIgnore
     private AereoEntity aereo;
-
 
     public Long getId() {
         return id;

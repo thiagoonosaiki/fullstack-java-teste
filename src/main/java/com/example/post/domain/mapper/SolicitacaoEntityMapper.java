@@ -3,7 +3,7 @@ package com.example.post.domain.mapper;
 import br.com.seuprojeto.soap.client.*;
 import com.example.post.domain.StatusSolicitacaoEntity;
 import com.example.post.domain.entity.AereoEntity;
-import com.example.post.domain.entity.AereoSeguimentoEntity;
+import com.example.post.domain.entity.AereoSegmentoEntity;
 import com.example.post.domain.entity.PassageiroEntity;
 import com.example.post.domain.entity.SolicitacaoEntity;
 
@@ -31,6 +31,7 @@ public class SolicitacaoEntityMapper {
 
         SolicitacaoEntity entity = new SolicitacaoEntity();
         entity.setIdSolicitacao(solicitacaoSoap.getIdSolicitacao());
+        System.out.println("Status recebido: " + solicitacaoSoap.getStatusSolicitacao().name());
         entity.setStatus(
                 StatusSolicitacaoEntity.valueOf(
                         solicitacaoSoap.getStatusSolicitacao().name()));
@@ -61,7 +62,7 @@ public class SolicitacaoEntityMapper {
                 if (a.getAereoSeguimento() != null) {
                     for (AereoSeguimento seg : a.getAereoSeguimento()) {
 
-                        AereoSeguimentoEntity se = new AereoSeguimentoEntity();
+                        AereoSegmentoEntity se = new AereoSegmentoEntity();
                         se.setCidadeOrigem(seg.getCidadeOrigem());
                         se.setCidadeDestino(seg.getCidadeDestino());
                         se.setDataSaida(
@@ -72,7 +73,7 @@ public class SolicitacaoEntityMapper {
                         );
 
                         se.setAereo(ae);
-                        ae.getSeguimentos().add(se);
+                        ae.getSegmentos().add(se);
                     }
                 }
 
