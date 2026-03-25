@@ -1,3 +1,8 @@
+.button {
+    padding: 10px;
+    margin-bottom: 8px;
+}
+
 .tabela {
     width: 100%;
     border-collapse: collapse;
@@ -7,8 +12,12 @@
     border: 1px solid #ccc;
     padding: 8px;
     text-align: left;
+    
 }
 
 .tabela th {
-    background-color: #f4f4f4;
+    background-color: #4CAF50;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }

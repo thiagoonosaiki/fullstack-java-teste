@@ -3,22 +3,45 @@
 </p>
 
 <div>
- <button (click)="buscarSolicitacoes()">
+ <button (click)="buscarSolicitacoes()" class="button">
     Buscar
   </button>
 
  <table *ngIf="solicitacoes.length > 0" class="tabela">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Nome</th>
+      <th>Número Solicitação</th>
+      <th>Status</th>
+      <th>Viajante</th>
+      
+      <th>Conteúdo Aéreo</th>
+      
+      
     </tr>
   </thead>
 
   <tbody>
     <tr *ngFor="let s of solicitacoes">
       <td>{{ s.idSolicitacao}}</td>
-      <td>{{ s.solicitante}}</td>
+      <td>{{ s.status }}</td>
+      
+
+      <td>
+        <div *ngFor="let p of s.passageiros">
+          {{ p.nome }}
+        </div>
+      </td>
+
+      <td>
+        <div *ngFor="let a of s.aereos">
+          <Strong>{{ a.cia }} - {{ a.localizador }}</Strong>
+      
+          <div *ngFor="let seg of a.aereosSegmentos">
+          {{ seg.cidadeOrigem }} -> {{ seg.cidadeDestino }} 
+          </div>
+        </div>
+      </td>
+      
     </tr>
   </tbody>
 
