@@ -46,6 +46,16 @@ public class PersistirSolicitacaoService {
 
         for (Solicitacao solicitacao : response.getSolicitacao()) {
 
+            if (solicitacao.getAereos() == null ||
+                    solicitacao.getAereos().getAereo() == null ||
+                    solicitacao.getAereos().getAereo().isEmpty()) {
+
+                System.out.println("Ignorando solicitação sem aéreo: "
+                        + solicitacao.getIdSolicitacao());
+
+                continue;
+            }
+
             SolicitacaoEntity entity =
                     SolicitacaoEntityMapper.toEntity(solicitacao);
 

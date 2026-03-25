@@ -60,7 +60,7 @@ public class ListarSolicitacaoService {
                     aereoDTO.setLocalizador(a.getLocalizador());
                     aereoDTO.setCia(a.getCia());
 
-                    List<AereoSegmentoDTO> aereoSeguimentoDTOS = a.getSegmentos()
+                    List<AereoSegmentoDTO> aereoSegmentoDTOS = a.getSegmentos()
                             .stream()
                             .map(seg -> {
                                 AereoSegmentoDTO aereoSegmentoDTO = new AereoSegmentoDTO();
@@ -73,7 +73,7 @@ public class ListarSolicitacaoService {
                             })
                             .collect(Collectors.toList());
 
-                    aereoDTO.setAereosSeguimentos(aereoSeguimentoDTOS);
+                    aereoDTO.setAereosSegmentos(aereoSegmentoDTOS);
 
                     return aereoDTO;
                 })

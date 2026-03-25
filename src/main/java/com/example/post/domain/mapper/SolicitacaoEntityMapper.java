@@ -19,7 +19,7 @@ public class SolicitacaoEntityMapper {
     /**
      * Converte uma {@link Solicitacao} proveniente do serviço SOAP
      * em uma {@link SolicitacaoEntity}.
-     *
+     * <p>
      * O método realiza o mapeamento dos dados principais da solciitação,
      * passageiros, informações aéreas e seus respectivos segmentos,
      * mantendo os relacionamentos entre as entidades.
@@ -29,7 +29,9 @@ public class SolicitacaoEntityMapper {
      */
     public static SolicitacaoEntity toEntity(Solicitacao solicitacaoSoap) {
 
+
         SolicitacaoEntity entity = new SolicitacaoEntity();
+
         entity.setIdSolicitacao(solicitacaoSoap.getIdSolicitacao());
         System.out.println("Status recebido: " + solicitacaoSoap.getStatusSolicitacao().name());
         entity.setStatus(
@@ -80,6 +82,7 @@ public class SolicitacaoEntityMapper {
                 entity.getAereos().add(ae);
             }
         }
+
 
         return entity;
     }

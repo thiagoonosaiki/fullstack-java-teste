@@ -32,11 +32,11 @@ public class AereoDTO {
         this.localizador = localizador;
     }
 
-    public List<AereoSegmentoDTO> getAereosSeguimentos() {
+    public List<AereoSegmentoDTO> getAereosSegmentos() {
         return aereosSegmentos;
     }
 
-    public void setAereosSeguimentos(List<AereoSegmentoDTO> aereosSeguimentos) {
-        this.aereosSegmentos = aereosSeguimentos;
+    public void setAereosSegmentos(List<AereoSegmentoDTO> aereosSegmentos) {
+        this.aereosSegmentos = aereosSegmentos;
     }
 }
