@@ -1,79 +1,60 @@
-<p>
-  solicitacao works!
-</p>
+<body>
 
-<div>
- <button (click)="buscarSolicitacoes()" class="button">
-    Buscar
-  </button>
+  <div class="grid">
 
- <table *ngIf="solicitacoes.length > 0" class="tabela">
-  <thead>
-    <tr>
-      <th>Número Solicitação</th>
-      <th>Status</th>
-      <th>Viajante</th>
+    <p>
+      Pesquisa de Solicitações Aereos
+    </p>
+    <div class="principal">
       
-      <th>Conteúdo Aéreo</th>
-      
-      
-    </tr>
-  </thead>
+      <button (click)="buscarSolicitacoes()" class="button">
+        Buscar
+      </button>
+      <button (click)="paginaAnterior()" [disabled]="paginaAtual ===0" class="button">
+        Anterior
+      </button>
+      <span>Página {{ paginaAtual + 1 }} de {{ totalPaginas }}</span>
+      <button (click)="proximaPagina()" [disabled]="paginaAtual >= totalPaginas - 1" class="button">
+        Próxima
+      </button>
+    </div>
+    <table *ngIf="solicitacoes.length > 0" class="tabela">
+      <thead>
+        <tr>
+          <th>Número Solicitação</th>
+          <th>Status</th>
+          <th>Viajante</th>
+          <th>Conteúdo Aéreo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of solicitacoes">
+          <td>{{ s.idSolicitacao}}</td>
+          <td>{{ s.status }}</td>
+          <td>
+            <div *ngFor="let p of s.passageiros">
+              {{ p.nome }}
+            </div>
+          </td>
+          <td>
+            <div *ngFor="let a of s.aereos">
+              <Strong>
+                {{ a.cia }} - {{ a.localizador }}
+              </Strong>
+              <div *ngFor="let seg of a.aereosSegmentos">
+                {{ seg.cidadeOrigem }} -> {{ seg.cidadeDestino }}
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-  <tbody>
-    <tr *ngFor="let s of solicitacoes">
-      <td>{{ s.idSolicitacao}}</td>
-      <td>{{ s.status }}</td>
-      
 
-      <td>
-        <div *ngFor="let p of s.passageiros">
-          {{ p.nome }}
-        </div>
-      </td>
 
-      <td>
-        <div *ngFor="let a of s.aereos">
-          <Strong>{{ a.cia }} - {{ a.localizador }}</Strong>
-      
-          <div *ngFor="let seg of a.aereosSegmentos">
-          {{ seg.cidadeOrigem }} -> {{ seg.cidadeDestino }} 
-          </div>
-        </div>
-      </td>
-      
-    </tr>
-  </tbody>
+    <footer class="copy">
+      <p>Todos os direitos livres</p>
+    </footer>
+  </div>
 
- </table>
-</div>
-
-<!-- <div>
-  <button (click)="buscarSolicitacoes()">
-    Buscar Solicitações
-  </button>
-  <pre>{{ solicitacoes | json}}</pre>
-  <ul>
-    <li *ngFor="let s of solicitacoes">
-      {{ s.solicitante }}
-    </li>
-  </ul>
-</div>
-<div>
-  <table class="tabela">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nome</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr *ngFor="let s of solicitacoes">
-        <td>{{ s.idSolicitacao }}</td>
-        <td>{{ s.solicitante }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div> -->
-
+</body>
