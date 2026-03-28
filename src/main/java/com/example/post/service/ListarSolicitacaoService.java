@@ -8,7 +8,10 @@ import com.example.post.domain.dto.PassageiroDTO;
 import com.example.post.domain.dto.SolicitacaoDTO;
 import com.example.post.domain.entity.SolicitacaoEntity;
 import com.example.post.repository.SolicitacaoRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,15 +23,20 @@ public class ListarSolicitacaoService {
     @Autowired
     private SolicitacaoRepository repository;
 
+    public Page<SolicitacaoDTO> solicitacaoDTOPage(int page, int size){
+        Page<SolicitacaoEntity> entityPage = repository.findAll(PageRequest.of(page, size));
 
-    public List<SolicitacaoDTO> listarsolicitacoes(){
-
-        List<SolicitacaoEntity> entities = repository.findAll();
-
-        return entities.stream()
-                .map(this::converterParaDTO)
-                .collect(Collectors.toList());
+        return entityPage.map(this::converterParaDTO);
     }
+
+//    public List<SolicitacaoDTO> listarsolicitacoes(){
+//
+//        List<SolicitacaoEntity> entities = repository.findAll();
+//
+//        return entities.stream()
+//                .map(this::converterParaDTO)
+//                .collect(Collectors.toList());
+//    }
 
 
     private SolicitacaoDTO converterParaDTO(SolicitacaoEntity entity) {
