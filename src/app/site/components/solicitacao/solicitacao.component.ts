@@ -16,7 +16,7 @@ export class SolicitacaoComponent {
 
   paginaAtual = 0;
   tamanhoPagina = 5;
-  totalPaginas = 0;
+  totalPaginas = 1;
 
   buscarSolicitacoes() {
     this.service
